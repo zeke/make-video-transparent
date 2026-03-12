@@ -69,9 +69,9 @@ video {
 
 ## Demo
 
-The `demo/` directory contains an `index.html` page for previewing transparent videos in the browser. It includes a color picker to dynamically change the background behind the video.
+See the live demo at https://zeke.github.io/make-video-transparent — it shows a transparent video with a color picker to dynamically change the background.
 
-To try it, generate your transparent videos, put them in `demo/`, and open `demo/index.html` in a browser.
+The `demo/` directory contains the source for this page. To test locally with your own videos, generate transparent videos with the script, drop them in `demo/`, and open `demo/index.html` in a browser.
 
 ## How it works
 
