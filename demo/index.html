@@ -24,21 +24,30 @@
       background-color: dodgerblue;
     }
 
-    .controls {
+    .swatches {
       display: flex;
-      gap: 0.5rem;
-      align-items: center;
+      width: 90vw;
+      max-width: 90vw;
     }
 
-    .controls label {
-      font-size: 0.875rem;
-    }
-
-    .controls input[type="color"] {
+    .swatch {
+      flex: 1;
+      height: 2.5rem;
       border: none;
-      width: 3rem;
-      height: 2rem;
       cursor: pointer;
+      transition: scale 0.1s ease;
+    }
+
+    .swatch:hover {
+      scale: 1 1.4;
+    }
+
+    .swatch:first-child {
+      border-radius: 0.25rem 0 0 0.25rem;
+    }
+
+    .swatch:last-child {
+      border-radius: 0 0.25rem 0.25rem 0;
     }
   </style>
 </head>
@@ -48,16 +57,22 @@
     <source src="demo.webm" type="video/webm">
   </video>
 
-  <div class="controls">
-    <label for="bg">Background color:</label>
-    <input type="color" id="bg" value="#1e90ff">
+  <div class="swatches">
+    <button class="swatch" style="background: #ff0000" data-color="#ff0000"></button>
+    <button class="swatch" style="background: #ff7f00" data-color="#ff7f00"></button>
+    <button class="swatch" style="background: #ffff00" data-color="#ffff00"></button>
+    <button class="swatch" style="background: #00ff00" data-color="#00ff00"></button>
+    <button class="swatch" style="background: #0000ff" data-color="#0000ff"></button>
+    <button class="swatch" style="background: #4b0082" data-color="#4b0082"></button>
+    <button class="swatch" style="background: #9400d3" data-color="#9400d3"></button>
   </div>
 
   <script>
     const video = document.querySelector('video');
-    const picker = document.getElementById('bg');
-    picker.addEventListener('input', (e) => {
-      video.style.backgroundColor = e.target.value;
+    document.querySelectorAll('.swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        video.style.backgroundColor = swatch.dataset.color;
+      });
     });
   </script>
 </body>
